@@ -1,0 +1,80 @@
+
+<TelaLancamento@BoxLayout>:
+    orientation: "vertical"
+    name: 'TelaLancamento'
+    id: TelaLancamento
+    valign: "center"
+    halign: "center"
+
+    StackLayout:
+        orientation: 'tb-lr'
+        padding: 20
+        spacing: 20
+
+
+        Label:
+            text: "Lista de Contatos"
+            size_hint_y: 0.15
+            font_size: "30dp"
+
+        Label:
+            text: "Lista de Contatos"
+            size_hint_y: 0.15
+            font_size: "12dp"
+            name: 'msg'
+            id: msg
+
+        EntradaDados:
+            hint_text: "Nome"
+            name: 'txt_nome'
+            id: txt_nome
+
+        EntradaDados:
+            hint_text: "E-mail"
+            name: 'txt_email'
+            id: txt_email
+            #on_text_validate: root.validaReal()
+            #on_release: root.reseta()
+
+
+        Button:
+            size_hint_y: .1
+            size_hint_x: 1
+            on_release: root.gravarDados()
+            text_size: '20sp'
+
+            StackLayout:
+                pos: self.parent.pos
+                size: self.parent.size
+                orientation: 'lr-tb'
+                Image:
+                    source: 'icons/btn_save.png'
+                    size_hint_x: .2
+                Label:
+                    text: "Gravar"
+                    size_hint_x: .5
+
+    Button:
+        size_hint_y: .1
+        size_hint_x: 1
+        on_press:
+            app.root.transition.direction = 'right'
+            app.root.current = ('TelaPrincipal')
+
+        #on_release: app.root.switch_to('TelaPrincipal', direction='right', duration=1.)
+        text_size: '20sp'
+
+        StackLayout:
+            pos: self.parent.pos
+            size: self.parent.size
+            orientation: 'lr-tb'
+            Image:
+                source: 'icons/btn_voltar.png'
+                size_hint_x: .2
+            Label:
+                text: "Voltar"
+                size_hint_x: .5
+
+    BoxLayout:
+        size_hint: None, None
+        top: 10

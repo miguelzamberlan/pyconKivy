@@ -1,0 +1,63 @@
+<CustLabel@Label>:
+    bcolor: (1,1,1,1)
+    canvas.before:
+        Color:
+            rgba: root.bcolor
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<TelaPrincipal@BoxLayout>:
+    orientation: "vertical"
+    name: 'TelaPrincipal'
+    id: TelaPrincipal
+
+    StackLayout:
+        orientation: 'tb-lr'
+        padding: 20
+        spacing: 10
+
+        Label:
+            text: "Lista de Contatos"
+            size_hint_y: 0.15
+            font_size: "30dp"
+
+        Label:
+            id: labelinformaano
+            text: ""
+            size_hint_y: 0.05
+            font_size: "20dp"
+
+        Button:
+            size_hint_y: .1
+            size_hint_x: 1
+            on_release:
+                app.root.transition.direction = 'left'
+                app.root.current = 'TelaLancamento'
+            StackLayout:
+                pos: self.parent.pos
+                size: self.parent.size
+                orientation: 'lr-tb'
+                Image:
+                    source: 'icons/btn_criar.png'
+                    size_hint_x: .2
+                Label:
+                    text: "Inserir contato"
+                    size_hint_x: .5
+                    size_hint_y: 1
+
+        RecycleView:
+            viewclass: 'CustLabel'
+            id: table_floor
+            size_hint_y: 0.3
+            RecycleGridLayout:
+                id: table_floor_layout
+                cols: 3
+                default_size: (None,250)
+                default_size_hint: (1,None)
+                size_hint_y: None
+                height: self.minimum_height
+                #height: 5
+                spacing: 3
+                #padding: 10

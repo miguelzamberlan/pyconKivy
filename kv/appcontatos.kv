@@ -1,0 +1,25 @@
+#:include kv/telaprincipal.kv
+#:include kv/telalancamento.kv
+#:import C kivy.utils.get_color_from_hex
+
+<EntradaDados@TextInput>:
+    font_size: '18dp'
+    cursor_color: C('#ffffff')
+    canvas.after:
+        Color:
+            rgba: C('#3f92db')
+        Line:
+            points: self.pos[0] , self.pos[1], self.pos[0] + self.size[0], self.pos[1]
+        #Line:
+        #    points: self.pos[0], self.pos[1] + self.size[1], self.pos[0] + self.size[0], self.pos[1] + self.size[1]
+    multiline: False
+    size_hint_y: 0.06
+    size_hint_x: 1
+    padding: 5
+    spacing: 5
+    background_color: C("#000000")
+    foreground_color: C('#FFFFFF')
+    hint_text_color: C("#696969")
+
+
+
